@@ -1,0 +1,56 @@
+.navBar{
+	font-family: 'Amatic SC', cursive;
+	font-size: 26px;
+}
+
+.login {
+	font-family: 'Josefin Slab', serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.signup {
+	font-family: 'Josefin Slab', serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+.header1 {
+	font-family: 'Amatic SC', cursive;
+	font-weight: 400;
+	text-align: center;
+}
+
+.header4 {
+	font-family: 'Josefin Slab', serif;
+    font-weight: 400;
+    text-align: center;
+    padding: 10px;
+}
+
+.season {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+.footerIndex {
+  position: absolute;
+  right: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
+}
+
+

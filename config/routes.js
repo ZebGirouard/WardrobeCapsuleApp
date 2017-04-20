@@ -15,11 +15,17 @@ function authenticatedUser(req, res, next){
 	res.redirect('/');
 }
 
+
+
+//HOME AND SEASON PAGE ROUTING///////
+
 router.route('/')
   .get(staticsController.home);
 
 router.route('/spring')
   .get(staticsController.spring);
+
+//LOGIN PASSPORT ROUTING/////
 
 router.route('/signup')
   .get(usersController.getSignup)

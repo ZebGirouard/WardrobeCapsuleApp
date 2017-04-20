@@ -1,5 +1,10 @@
 $(document).ready(function(){
 	console.log('client.js is loaded!');
+//this where the delete functionality
+//ajax will send a delete request to whatever collection db depending on user id send appropriate product id, use$this
+//grab data attribute
+
+
 
 // $('#springClick').click(function(e) {
 // 	var href = this.href;//get href from link

@@ -1,14 +1,3 @@
-// // GET /
-
-// module.exports = function(app) {
-// 	app.get('/', function(req, res){
-// 		res.render('index');
-// 	});
-
-// 	app.get('/spring', function(req, res){
-// 		res.render('spring');
-// 	});
-// };
 
 
 function home(req, res) {  
@@ -18,6 +7,9 @@ function home(req, res) {
 function spring(req, res){
 	res.render('spring');
 }
+
+//Need to build same thing for fall/winter/summer pages
+
 
 module.exports = {
   home: home,

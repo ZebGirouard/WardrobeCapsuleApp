@@ -53,4 +53,16 @@
   text-align: center;
 }
 
+/*SEASON PAGE STYLING*/
+
+.clothesCategory {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 5px;
+}
+/*.clothesRow {
+  display:inline-block;
+}*/
+
 

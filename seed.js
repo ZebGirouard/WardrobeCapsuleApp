@@ -34,7 +34,8 @@ request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&o
 		price: product.priceLabel,
 		retailer: product.retailer.name,
 		description: product.description, 
-		url: product.clickUrl
+		url: product.clickUrl, 
+		image: product.image.sizes.IPhone
 		};
 		dressList.push(dressObj);
 		console.log(dressObj);

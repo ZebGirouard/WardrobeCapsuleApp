@@ -6,7 +6,8 @@ var DressSchema = new Schema ({
 		price: String,
 		retailer: String,
 		description: String, 
-		url: String
+		url: String,
+		image: String
 	});
 
 var Dress = mongoose.model('Dress', DressSchema);

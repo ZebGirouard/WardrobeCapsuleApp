@@ -49,7 +49,7 @@ module.exports = function(passport) {
 			if(err) {return callback(err);}
 
 			if(!user) {
-				return callback(null, false, req.flash('loginMessage', 'No user found.'));
+				return callback(null, false, req.flash('loginMessage', 'No user found.  Go to SignUp page to register.'));
 			}
 			if(!user.validPassword(password)) {
 				return callback(null, false, req.flash('loginMessage', 'Oops! Wrong password'));

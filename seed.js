@@ -35,10 +35,10 @@ request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&o
 		retailer: product.retailer.name,
 		description: product.description, 
 		url: product.clickUrl, 
-		image: product.image.sizes.IPhone
+		image: product.image.sizes.IPhone.url
 		};
 		dressList.push(dressObj);
-		console.log(dressObj);
+		// console.log(dressList);
 	});
 
 	db.Dress.remove({}, function(err, dresses){

@@ -22,7 +22,7 @@ function authenticatedUser(req, res, next){
 	res.redirect('/');
 }
 
-//CLOTHING DATABASE ROUTING////
+//CLOTHING DATABASE ROUTING////  OFF FOR NOW UNTIL I GET THE CORRECT CONTROLLER ROUTE IN PLACE
 //dresses
 // router.route('/api/dresses')
 //   .get(clothesController.allDresses);

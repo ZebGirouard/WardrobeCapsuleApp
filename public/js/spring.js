@@ -22,7 +22,117 @@ $.ajax({
 	success:  topSuccess, 
 	error: handleError
 });
+
+//pull the selected spring pants onto the spring capsule page
+$.ajax({
+	method: 'GET',
+	url:'api/pants',
+	success:  pantSuccess, 
+	error: handleError
 });
+
+//pull the selected spring shoes onto the spring capsule page
+$.ajax({
+	method: 'GET',
+	url:'api/shoes',
+	success:  shoeSuccess, 
+	error: handleError
+});
+});
+
+function shoeSuccess(json) {
+	console.log("shoe success!");
+	var allshoes = json;
+	// console.log(allshoes);
+
+	var shoeOneName = allshoes[10].name;
+	var shoeOnePrice = allshoes[10].price;
+	var shoeOneUrl= allshoes[10].url;
+	var shoeOneImage = allshoes[10].image;
+
+	$('.shoe1').find('.card-img-top').attr("src", shoeOneImage);
+	$('.shoe1').find('.card-text').text(shoeOnePrice);
+	$('.shoe1').find('.card-title').text(shoeOneName);
+	$('.shoe1').find('.btn').attr("href", shoeOneUrl);
+
+	var shoeTwoName = allshoes[11].name;
+	var shoeTwoPrice = allshoes[11].price;
+	var shoeTwoUrl= allshoes[11].url;
+	var shoeTwoImage = allshoes[11].image;
+
+	$('.shoe2').find('.card-img-top').attr("src", shoeTwoImage);
+	$('.shoe2').find('.card-text').text(shoeTwoPrice);
+	$('.shoe2').find('.card-title').text(shoeTwoName);
+	$('.shoe2').find('.btn').attr("href", shoeTwoUrl);
+
+	var shoeThreeName = allshoes[34].name;
+	var shoeThreePrice = allshoes[34].price;
+	var shoeThreeUrl= allshoes[34].url;
+	var shoeThreeImage = allshoes[34].image;
+
+	$('.shoe3').find('.card-img-top').attr("src", shoeThreeImage);
+	$('.shoe3').find('.card-text').text(shoeThreePrice);
+	$('.shoe3').find('.card-title').text(shoeThreeName);
+	$('.shoe3').find('.btn').attr("href", shoeThreeUrl);
+
+
+	var shoeFourName = allshoes[38].name;
+	var shoeFourPrice = allshoes[38].price;
+	var shoeFourUrl= allshoes[38].url;
+	var shoeFourImage = allshoes[38].image;
+
+	$('.shoe4').find('.card-img-top').attr("src", shoeFourImage);
+	$('.shoe4').find('.card-text').text(shoeFourPrice);
+	$('.shoe4').find('.card-title').text(shoeFourName);
+	$('.shoe4').find('.btn').attr("href", shoeFourUrl);
+}
+
+function pantSuccess(json) {
+	console.log("pant success!");
+	var allpants = json;
+	console.log(allpants);
+
+	var pantOneName = allpants[10].name;
+	var pantOnePrice = allpants[10].price;
+	var pantOneUrl= allpants[10].url;
+	var pantOneImage = allpants[10].image;
+
+	$('.pant1').find('.card-img-top').attr("src", pantOneImage);
+	$('.pant1').find('.card-text').text(pantOnePrice);
+	$('.pant1').find('.card-title').text(pantOneName);
+	$('.pant1').find('.btn').attr("href", pantOneUrl);
+
+	var pantTwoName = allpants[11].name;
+	var pantTwoPrice = allpants[11].price;
+	var pantTwoUrl= allpants[11].url;
+	var pantTwoImage = allpants[11].image;
+
+	$('.pant2').find('.card-img-top').attr("src", pantTwoImage);
+	$('.pant2').find('.card-text').text(pantTwoPrice);
+	$('.pant2').find('.card-title').text(pantTwoName);
+	$('.pant2').find('.btn').attr("href", pantTwoUrl);
+
+	var pantThreeName = allpants[34].name;
+	var pantThreePrice = allpants[34].price;
+	var pantThreeUrl= allpants[34].url;
+	var pantThreeImage = allpants[34].image;
+
+	$('.pant3').find('.card-img-top').attr("src", pantThreeImage);
+	$('.pant3').find('.card-text').text(pantThreePrice);
+	$('.pant3').find('.card-title').text(pantThreeName);
+	$('.pant3').find('.btn').attr("href", pantThreeUrl);
+
+
+	var pantFourName = allpants[38].name;
+	var pantFourPrice = allpants[38].price;
+	var pantFourUrl= allpants[38].url;
+	var pantFourImage = allpants[38].image;
+
+	$('.pant4').find('.card-img-top').attr("src", pantFourImage);
+	$('.pant4').find('.card-text').text(pantFourPrice);
+	$('.pant4').find('.card-title').text(pantFourName);
+	$('.pant4').find('.btn').attr("href", pantFourUrl);
+}
 
 function topSuccess(json) {
 	console.log("top success!");

@@ -94,12 +94,48 @@ var db = require('./models');
 
 // get route for ShopStyle api pants - returns 50 pants(max per api) and makes sure price is less than $150
 
-request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=womens-pants&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
-	var pantList = [];
+// request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=womens-pants&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
+// 	var pantList = [];
+// 	body = JSON.parse(body);
+// 	// console.log(body);
+// 	body.products.forEach(function(product){
+// 		pantObj = {
+// 		name: product.brandedName,
+// 		price: product.priceLabel,
+// 		retailer: product.retailer.name,
+// 		description: product.description, 
+// 		url: product.clickUrl, 
+// 		image: product.image.sizes.IPhone.url
+// 		};
+// 		pantList.push(pantObj);
+	
+// 	});
+
+// 	db.Pant.remove({}, function(err, pants){
+// 		// console.log(dressList);
+// 		if (err) {
+// 			console.log('error occurred in remove', err);
+// 		} else {
+// 			console.log('removed all pants');
+// 		}
+// 	});
+// 		//create new records based on dress array
+// 		db.Pant.create(pantList, function(err, pants){
+// 			if (err) { return console.log('err', err); }
+// 			console.log("created", pantList.length, "pants");
+// 			process.exit();
+// 		});
+
+// });
+
+// get route for ShopStyle api shoes - returns 50 shoes(max per api) and makes sure price is less than $150(supposed to do this - its not)
+
+request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=womens-shoes&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
+	var shoeList = [];
 	body = JSON.parse(body);
 	// console.log(body);
 	body.products.forEach(function(product){
-		pantObj = {
+		shoeObj = {
 		name: product.brandedName,
 		price: product.priceLabel,
 		retailer: product.retailer.name,
@@ -107,27 +143,26 @@ request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=womens-
 		url: product.clickUrl, 
 		image: product.image.sizes.IPhone.url
 		};
-		pantList.push(pantObj);
+		shoeList.push(shoeObj);
 	
 	});
 
-	db.Pant.remove({}, function(err, pants){
-		// console.log(dressList);
+	db.Shoe.remove({}, function(err, shoes){
+		
 		if (err) {
 			console.log('error occurred in remove', err);
 		} else {
-			console.log('removed all pants');
+			console.log('removed all shoes');
 		}
 	});
 		//create new records based on dress array
-		db.Pant.create(pantList, function(err, pants){
+		db.Shoe.create(shoeList, function(err, shoes){
 			if (err) { return console.log('err', err); }
-			console.log("created", pantList.length, "pants");
+			console.log("created", shoeList.length, "shoes");
 			process.exit();
 		});
 
 });
-
 
 
 

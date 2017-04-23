@@ -7,13 +7,71 @@ var $dressUrl;
 $(document).ready(function() {
   console.log('spring.js loaded!');
 
+//pull the selected spring dresses onto the spring capsule page
 $.ajax({
 	method: 'GET',
 	url:'api/dresses',
 	success:  dressSuccess, 
 	error: handleError
 });
+
+//pull the selected spring tops onto the spring capsule page
+$.ajax({
+	method: 'GET',
+	url:'api/tops',
+	success:  topSuccess, 
+	error: handleError
 });
+});
+
+function topSuccess(json) {
+	console.log("top success!");
+	var allTops = json;
+	console.log(allTops);
+
+	var topOneName = allTops[1].name;
+	var topOnePrice = allTops[1].price;
+	var topOneUrl= allTops[1].url;
+	var topOneImage = allTops[1].image;
+
+	$('.top1').find('.card-img-top').attr("src", topOneImage);
+	$('.top1').find('.card-text').text(topOnePrice);
+	$('.top1').find('.card-title').text(topOneName);
+	$('.top1').find('.btn').attr("href", topOneUrl);
+
+	var topTwoName = allTops[2].name;
+	var topTwoPrice = allTops[2].price;
+	var topTwoUrl= allTops[2].url;
+	var topTwoImage = allTops[2].image;
+
+	$('.top2').find('.card-img-top').attr("src", topTwoImage);
+	$('.top2').find('.card-text').text(topTwoPrice);
+	$('.top2').find('.card-title').text(topTwoName);
+	$('.top2').find('.btn').attr("href", topTwoUrl);
+
+	var topThreeName = allTops[11].name;
+	var topThreePrice = allTops[11].price;
+	var topThreeUrl= allTops[11].url;
+	var topThreeImage = allTops[11].image;
+
+	$('.top3').find('.card-img-top').attr("src", topThreeImage);
+	$('.top3').find('.card-text').text(topThreePrice);
+	$('.top3').find('.card-title').text(topThreeName);
+	$('.top3').find('.btn').attr("href", topThreeUrl);
+
+
+	var topFourName = allTops[17].name;
+	var topFourPrice = allTops[17].price;
+	var topFourUrl= allTops[17].url;
+	var topFourImage = allTops[17].image;
+
+	$('.top4').find('.card-img-top').attr("src", topFourImage);
+	$('.top4').find('.card-text').text(topFourPrice);
+	$('.top4').find('.card-title').text(topFourName);
+	$('.top4').find('.btn').attr("href", topFourUrl);
+}
+
+
 
 function dressSuccess(json) {
 	console.log("dress success!");
@@ -51,10 +109,10 @@ function dressSuccess(json) {
 	$('.dress3').find('.btn').attr("href", dressThreeUrl);
 
 
-	var dressFourName = allDresses[9].name;
-	var dressFourPrice = allDresses[9].price;
-	var dressFourUrl= allDresses[9].url;
-	var dressFourImage = allDresses[9].image;
+	var dressFourName = allDresses[3].name;
+	var dressFourPrice = allDresses[3].price;
+	var dressFourUrl= allDresses[3].url;
+	var dressFourImage = allDresses[3].image;
 
 	$('.dress4').find('.card-img-top').attr("src", dressFourImage);
 	$('.dress4').find('.card-text').text(dressFourPrice);

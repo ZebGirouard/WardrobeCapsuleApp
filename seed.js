@@ -20,16 +20,86 @@ var db = require('./models');
 
 
 
-//get route for ShopStyle api dresses - returns 50 dresses(max per api) and makes sure price is ,$150
-// app.get('/api/products/dresses', function(req, res){
-// 	console.log("function running");
+//get route for ShopStyle api dresses - returns 50 dresses(max per api) and makes sure price is less than $200
 
-request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
-	var dressList = [];
+// request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
+// 	var dressList = [];
+// 	body = JSON.parse(body);
+// 	// console.log(body);
+// 	body.products.forEach(function(product){
+// 		dressObj = {
+// 		name: product.brandedName,
+// 		price: product.priceLabel,
+// 		retailer: product.retailer.name,
+// 		description: product.description, 
+// 		url: product.clickUrl, 
+// 		image: product.image.sizes.IPhone.url
+// 		};
+// 		dressList.push(dressObj);
+// 		// console.log(dressList);
+// 	});
+
+// 	db.Dress.remove({}, function(err, dresses){
+// 		// console.log(dressList);
+// 		if (err) {
+// 			console.log('error occurred in remove', err);
+// 		} else {
+// 			console.log('removed all dresses');
+// 		}
+// 	});
+// 		//create new records based on dress array
+// 		db.Dress.create(dressList, function(err, dresses){
+// 			if (err) { return console.log('err', err); }
+// 			console.log("created", dressList.length, "dresses");
+// 			process.exit();
+// 		});
+
+// });
+
+//get route for ShopStyle api tops - returns 50 tops(max per api) and makes sure price is less than $200
+
+// request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=top&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
+// 	var topList = [];
+// 	body = JSON.parse(body);
+// 	// console.log(body);
+// 	body.products.forEach(function(product){
+// 		topObj = {
+// 		name: product.brandedName,
+// 		price: product.priceLabel,
+// 		retailer: product.retailer.name,
+// 		description: product.description, 
+// 		url: product.clickUrl, 
+// 		image: product.image.sizes.IPhone.url
+// 		};
+// 		topList.push(topObj);
+	
+// 	});
+
+// 	db.Top.remove({}, function(err, tops){
+// 		// console.log(dressList);
+// 		if (err) {
+// 			console.log('error occurred in remove', err);
+// 		} else {
+// 			console.log('removed all tops');
+// 		}
+// 	});
+// 		//create new records based on dress array
+// 		db.Top.create(topList, function(err, tops){
+// 			if (err) { return console.log('err', err); }
+// 			console.log("created", topList.length, "tops");
+// 			process.exit();
+// 		});
+
+// });
+
+// get route for ShopStyle api pants - returns 50 pants(max per api) and makes sure price is less than $150
+
+request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=womens-pants&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
+	var pantList = [];
 	body = JSON.parse(body);
 	// console.log(body);
 	body.products.forEach(function(product){
-		dressObj = {
+		pantObj = {
 		name: product.brandedName,
 		price: product.priceLabel,
 		retailer: product.retailer.name,
@@ -37,26 +107,30 @@ request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&o
 		url: product.clickUrl, 
 		image: product.image.sizes.IPhone.url
 		};
-		dressList.push(dressObj);
-		// console.log(dressList);
+		pantList.push(pantObj);
+	
 	});
 
-	db.Dress.remove({}, function(err, dresses){
+	db.Pant.remove({}, function(err, pants){
 		// console.log(dressList);
 		if (err) {
 			console.log('error occurred in remove', err);
 		} else {
-			console.log('removed all dresses');
+			console.log('removed all pants');
 		}
 	});
 		//create new records based on dress array
-		db.Dress.create(dressList, function(err, dresses){
+		db.Pant.create(pantList, function(err, pants){
 			if (err) { return console.log('err', err); }
-			console.log("created", dressList.length, "dresses");
+			console.log("created", pantList.length, "pants");
 			process.exit();
 		});
 
 });
+
+
+
+
 
 
 

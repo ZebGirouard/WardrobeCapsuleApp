@@ -40,12 +40,17 @@ Wondering if I don't need this to be specific for each clothing item and can use
 Front End Build:
 Today after I've built out each season page I'd like to start pulling in database items - probably won't get to the login user remove saves until this weekend. 
 
-3pm Log
+3pm Log:
 
 Got the dresses to pull into the Spring page!  Now I just need to figure out the most efficient way to pull certain dresses into each Season.  Also when a user goes to an item to buy it I'd like them to go to a new window(TODO). 
 
-5pm Log
+5pm Log:
+
 For now I'm just going to hard code my chosen dress into the page via jquery class pulls.  Works for now.  Eventually I'd like to loop through live api dresses to pull in per user choice.  Also if the content isn't similar sizing the button on the bottom of each card doesn't align. 
+
+7pm Log:
+
+I JUST FOUND OUT THAT THE NORDSTROM PICTURE HAS NO HEAD AND I SPENT WAY TOO MUCH TIME TRYING TO FIX MY IMG DIV. 
 
 
 

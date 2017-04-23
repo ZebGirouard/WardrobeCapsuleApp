@@ -1,12 +1,19 @@
 var express = require('express');
 var router = express.Router();
 // Parses information from POST
+
+
 var bodyParser = require('body-parser');
+
+var mongoose     = require('mongoose');
+// var db = require('./models');
+
 // Used to manipulate POST methods
 var methodOverride = require('method-override');
 var passport = require("passport");
 var usersController = require('../controllers/users');
 var staticsController = require('../controllers/statics');
+// var clothesController = require('../controllers/clothes');
 
 function authenticatedUser(req, res, next){
 	 // If the user is authenticated, then we continue the execution
@@ -15,6 +22,17 @@ function authenticatedUser(req, res, next){
 	res.redirect('/');
 }
 
+//CLOTHING DATABASE ROUTING////
+//dresses
+// router.route('/api/dresses')
+//   .get(clothesController.allDresses);
+
+// router.route('/api/dresses/:id')
+//   .get(clothesController.dressById);
+
+// //tops
+// router.route('/api/tops')
+//   .get(clothesController.allTops);
 
 
 //HOME AND SEASON PAGE ROUTING///////

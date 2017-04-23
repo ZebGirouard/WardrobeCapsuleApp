@@ -61,6 +61,17 @@
     font-size: 18px;
     padding: 5px;
 }
+
+.card-img-top {
+  padding: 5px;
+}
+
+.card-title {
+    font-family: 'Josefin Slab', serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 5px;
+}
 /*.clothesRow {
   display:inline-block;
 }*/

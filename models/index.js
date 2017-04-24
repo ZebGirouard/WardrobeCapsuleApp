@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/wardrobe-app");
+mongoose.connect(process.env.MONGODB_URI ||"localhost/wardrobe-app");
 // mongoose.connect('mongodb://localhost/local-authentication-with-passport'); 
 
 

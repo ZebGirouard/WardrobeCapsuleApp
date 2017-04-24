@@ -4,8 +4,8 @@ Heroku Link:  https://nameless-basin-85535.herokuapp.com/
 
 
 
-![alt text](./public/images/image1.jpg "WireFrame 1")
-![alt text](./public/images/image2.jpg "WireFrame 2")
+![alt text](./public/images/image1.jpg)
+![alt text](./public/images/image2.jpg)
 
 
 # Thursday, April 20:

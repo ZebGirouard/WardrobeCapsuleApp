@@ -46,6 +46,12 @@ router.route('/spring')
 router.route('/summer')
   .get(staticsController.summer);
 
+  router.route('/winter')
+  .get(staticsController.winter);
+
+  router.route('/fall')
+  .get(staticsController.fall);
+
 //LOGIN PASSPORT ROUTING/////
 
 router.route('/signup')

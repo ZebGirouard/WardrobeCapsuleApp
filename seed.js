@@ -22,39 +22,39 @@ var db = require('./models');
 
 //get route for ShopStyle api dresses - returns 50 dresses(max per api) and makes sure price is less than $200
 
-// request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
-// 	var dressList = [];
-// 	body = JSON.parse(body);
-// 	// console.log(body);
-// 	body.products.forEach(function(product){
-// 		dressObj = {
-// 		name: product.brandedName,
-// 		price: product.priceLabel,
-// 		retailer: product.retailer.name,
-// 		description: product.description, 
-// 		url: product.clickUrl, 
-// 		image: product.image.sizes.IPhone.url
-// 		};
-// 		dressList.push(dressObj);
-// 		// console.log(dressList);
-// 	});
+request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
+	var dressList = [];
+	body = JSON.parse(body);
+	// console.log(body);
+	body.products.forEach(function(product){
+		dressObj = {
+		name: product.brandedName,
+		price: product.priceLabel,
+		retailer: product.retailer.name,
+		description: product.description, 
+		url: product.clickUrl, 
+		image: product.image.sizes.IPhone.url
+		};
+		dressList.push(dressObj);
+		// console.log(dressList);
+	});
 
-// 	db.Dress.remove({}, function(err, dresses){
-// 		// console.log(dressList);
-// 		if (err) {
-// 			console.log('error occurred in remove', err);
-// 		} else {
-// 			console.log('removed all dresses');
-// 		}
-// 	});
-// 		//create new records based on dress array
-// 		db.Dress.create(dressList, function(err, dresses){
-// 			if (err) { return console.log('err', err); }
-// 			console.log("created", dressList.length, "dresses");
-// 			process.exit();
-// 		});
+	db.Dress.remove({}, function(err, dresses){
+		// console.log(dressList);
+		if (err) {
+			console.log('error occurred in remove', err);
+		} else {
+			console.log('removed all dresses');
+		}
+	});
+		//create new records based on dress array
+		db.Dress.create(dressList, function(err, dresses){
+			if (err) { return console.log('err', err); }
+			console.log("created", dressList.length, "dresses");
+			process.exit();
+		});
 
-// });
+});
 
 // get route for ShopStyle api tops - returns 50 tops(max per api) and makes sure price is less than $200
 

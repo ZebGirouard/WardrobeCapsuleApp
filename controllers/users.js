@@ -38,10 +38,6 @@ function getLogout(request, response, next) {
 	response.redirect('/');
 }
 
-// Restricted page
-function secret(request, response, next){
-	response.json("message: super secret ninja");
-}
 
 module.exports = {
   getLogin: getLogin,
@@ -49,5 +45,4 @@ module.exports = {
   getSignup: getSignup,
   postSignup: postSignup,
   getLogout: getLogout,
-  secret: secret
 };

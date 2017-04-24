@@ -7,7 +7,8 @@ var DressSchema = new Schema ({
 		retailer: String,
 		description: String, 
 		url: String,
-		image: String
+		image: String, 
+		hiddenFromUser: [Schema.Types.ObjectId]
 	});
 
 var Dress = mongoose.model('Dress', DressSchema);

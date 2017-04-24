@@ -52,6 +52,23 @@ For now I'm just going to hard code my chosen dress into the page via jquery cla
 
 I JUST FOUND OUT THAT THE NORDSTROM PICTURE HAS NO HEAD AND I SPENT WAY TOO MUCH TIME TRYING TO FIX MY IMG DIV. 
 
+# Sunday April 23:
+
+Ran into a few issues yesterday moving my routes from the server over into the controllers so I still have them in the server for now until I get the rest of my "needs" done as far as making the user qualifications and item delete.   A few things that I'm not going to focus on right now but want to fix eventually:
+
+	- For some reason my api code is using the filters for items up to $150, and the live api will pull only items under that filter, but when I pull the exact same filters into my database the items over that price limit still show up. 
+	- Still can't get the buttons on my items page to align up for each clothing category. 
+	- Still want to build in a route to the new page once you click on the item vs having it open up within that browser window.  Think this is better user functionality. 
+
+Today I need to get the delete button to work for each item, and add the delete history to each user so that they don't see what they've deleted when they log in.  Also want to allow them to be able to add items to replace the ones they deleted but that's a stretch goal. 
+
+Also need to add the header and footer to each season page, and get at least a "this page is coming" note to the seasons I haven't finished yet. 
+
+Wish List:
+	- It might be easier to have a database of dresses, tops, bottoms, shoes etc and then seed a new database for each season.  My thinking on this is that now the Dress/Tops/ etc. all need a delete route to each db whereas a spring delete could go to one spring db and find by id.  But also might not be that much extra work?  Not sure yet. 
+
+I was able to delete the card upon clicking remove and I'm working on adding the userId capabilities.  I think what I need to do is add a certain amount of an item (dresses) to the spring collection, and then as a user deletes that item another one from spring pops up.  If they delete all of the items from their capsule there will be nothing left in the database for that user. 
+
 
 
 

@@ -1,11 +1,10 @@
-var springDresses = [];
-var $dressName;
-var $dressDescrip;
-var $dressImage;
-var $dressUrl;
+var allDresses = [];
+var $card;
 
 $(document).ready(function() {
   console.log('spring.js loaded!');
+
+  $card = $('.card');
 
 //pull the selected spring dresses onto the spring capsule page
 $.ajax({
@@ -38,7 +37,38 @@ $.ajax({
 	success:  shoeSuccess, 
 	error: handleError
 });
+
+//delete the dress item upon click of delete button
+$card.on('click', '.deleteBtn', function() {
+    console.log('clicked delete button to', '/api/dresses/'+$(this).attr('data-id'));
+  	$(this).closest('.card').html('');
+
+    $.ajax({
+      method: 'DELETE',
+      url: '/api/dresses/'+$(this).attr('data-id'),
+      success: deleteDressSuccess,
+      error: deleteError
+    });
+  });
+
+
 });
+
+function deleteDressSuccess(json) {
+  var dressDelete = json;
+  console.log(json);
+  var dressId = dressDelete._id;
+  console.log('delete dress', dressId);
+  // find the dress with the correct ID and remove it from the array
+  for(var index = 0; index < allDresses.length; index++) {
+    if(allDresses[index]._id === dressId) {
+      allDresses.splice(index, 1);
+      break;  // we found our dress - no reason to keep searching (this is why we didn't use forEach)
+    }
+  
+  }
+}
+
 
 function shoeSuccess(json) {
 	console.log("shoe success!");
@@ -182,22 +212,25 @@ function topSuccess(json) {
 }
 
 
-
 function dressSuccess(json) {
 	console.log("dress success!");
 	var allDresses = json;
 	console.log(allDresses);
 
+	var dressOneId = allDresses[0]._id;
 	var dressOneName = allDresses[0].name;
 	var dressOnePrice = allDresses[0].price;
 	var dressOneUrl= allDresses[0].url;
 	var dressOneImage = allDresses[0].image;
+	console.log(dressOneId + "is dress one id");
 
 	$('.dress1').find('.card-img-top').attr("src", dressOneImage);
 	$('.dress1').find('.card-text').text(dressOnePrice);
 	$('.dress1').find('.card-title').text(dressOneName);
 	$('.dress1').find('.btn').attr("href", dressOneUrl);
+	$('.dress1').find('.deleteBtn').attr("data-id", dressOneId);
 
+	var dressTwoId = allDresses[1]._id;
 	var dressTwoName = allDresses[1].name;
 	var dressTwoPrice = allDresses[1].price;
 	var dressTwoUrl= allDresses[1].url;
@@ -208,10 +241,11 @@ function dressSuccess(json) {
 	$('.dress2').find('.card-title').text(dressTwoName);
 	$('.dress2').find('.btn').attr("href", dressTwoUrl);
 
-	var dressThreeName = allDresses[4].name;
-	var dressThreePrice = allDresses[4].price;
-	var dressThreeUrl= allDresses[4].url;
-	var dressThreeImage = allDresses[4].image;
+	var dressThreeId = allDresses[11]._id;
+	var dressThreeName = allDresses[11].name;
+	var dressThreePrice = allDresses[11].price;
+	var dressThreeUrl= allDresses[11].url;
+	var dressThreeImage = allDresses[11].image;
 
 	$('.dress3').find('.card-img-top').attr("src", dressThreeImage);
 	$('.dress3').find('.card-text').text(dressThreePrice);
@@ -219,6 +253,7 @@ function dressSuccess(json) {
 	$('.dress3').find('.btn').attr("href", dressThreeUrl);
 
 
+	var dressFourId = allDresses[3]._id;
 	var dressFourName = allDresses[3].name;
 	var dressFourPrice = allDresses[3].price;
 	var dressFourUrl= allDresses[3].url;
@@ -232,6 +267,10 @@ function dressSuccess(json) {
 
 function handleError(e) {
   console.log('uh oh, error');
+}
+
+function deleteError(e) {
+  console.log('uh oh, delete error');
 }
 
 

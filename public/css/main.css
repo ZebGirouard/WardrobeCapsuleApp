@@ -1,10 +1,16 @@
 .navBar{
-	font-family: 'Amatic SC', cursive;
-	font-size: 26px;
+	font-family: 'Josefin Slab', serif;
+  font-size: 18px;
 }
 
 .login {
 	font-family: 'Josefin Slab', serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.logout {
+  font-family: 'Josefin Slab', serif;
     font-weight: 400;
     font-size: 16px;
 }
@@ -56,10 +62,11 @@
 /*SEASON PAGE STYLING*/
 
 .clothesCategory {
-    font-family: 'Josefin Slab', serif;
-    font-weight: 600;
-    font-size: 18px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 800;
+    font-size: 26px;
     padding: 5px;
+
 }
 
 .card-img-top {
@@ -72,8 +79,16 @@
     font-size: 16px;
     padding: 5px;
 }
-/*.clothesRow {
-  display:inline-block;
-}*/
+ .btn-primary {
+  background:  #9CC0C9;
+  font-family: 'Josefin Slab', serif;
+  font-weight: 800;
+  font-size: 20px;
+ }
+
+ .deleteBtn {
+  font-size: 14px;
+  background: #86A4AB;
+ }
 
 

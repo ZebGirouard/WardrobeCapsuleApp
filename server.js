@@ -53,8 +53,6 @@ var routes = require('./config/routes');
 app.use(routes);
 
 
-// var port = process.env.PORT || 3000;
-
 // DB Page Endpoints//////
 
 //get all dresses and hide from user a dress that they've deleted
@@ -78,8 +76,6 @@ app.get('/api/dresses/:id', function dressById(req, res) {
   });
 });
 
-// 
-
 
 // delete dress
 app.delete('/api/dresses/:id', function (req, res) {
@@ -92,6 +88,27 @@ app.delete('/api/dresses/:id', function (req, res) {
   	if (err) console.log(err);
     res.json(deletedDress);
   });
+});
+
+//update a dress
+app.put('/api/dresses/:id', function (req, res){
+	console.log('updating dress id', req.params.id);
+	console.log(req.params.id);
+
+	db.Dress.findOne({ _id: req.params.id }, function(err, foundDress){
+		if(err) {console.log('error', err);}
+		foundDress.dressname = req.body.name;
+		foundDress.price = req.body.price;
+		foundDress.retailer = req.body.retailer;
+		foundDress.description = req.body.description;
+		foundDress.url = req.body.url;
+		foundDress.image = req.body.image;
+		foundDress.hiddenFromUser = req.body.hiddenFromUser;
+		foundDress.save(function(err, saved){
+			if(err) {console.log('error', err);}
+			res.json(saved);
+		});
+	});
 });
 
 //get all tops
@@ -116,59 +133,8 @@ app.get('/api/shoes', function allShoes (req, res){
 });
 
 
-/////////API ROUTES SHOPSTYLE PRODCUTS///////////////////
-
-//get route for ShopStyle api all products
-// app.get('/api/products/', function(req, res){
-// 	var products = [];
-// 	request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey, function(error, response, body){
-// 		body = JSON.parse(body);
-// 		// console.log(body);
-// 		body.products.forEach(function(product){
-// 			productObj = {
-// 			name: product.brandedName,
-// 			price: product.priceLabel,
-// 			retailer: product.retailer.name,
-// 			description: product.description, 
-// 			url: product.clickUrl
-// 		};
-// 		products.push(productObj);
-// 	});
-// 		console.log("products route");
-// 		res.send(products);
-
-// 	});
-// });
-
-
-//get route for ShopStyle api dresses - returns 50 dresses(max per api) and makes sure price is ,$150
-// app.get('/api/products/dresses', function(req, res){
-// 	var dresses = [];
-// 	request('http://api.shopstyle.com/api/v2/products?pid=' + apiKey + '&fts=dress&offset=0&limit=50&fl=p7&fl=p8&fl=p9&fl=p10', function(error, response, body){
-// 		body = JSON.parse(body);
-// 		// console.log(body);
-// 		body.products.forEach(function(product){
-// 			dressObj = {
-// 			name: product.brandedName,
-// 			price: product.priceLabel,
-// 			retailer: product.retailer.name,
-// 			description: product.description, 
-// 			url: product.clickUrl,
-// 			image: product.image.sizes.IPhone.url
-// 		};
-// 		dresses.push(dressObj);
-// 	});
-		
-// 		res.send(dresses);
-
-// 	});
-// });
-
 app.listen(process.env.PORT || 3000, function() {
 	console.log("server listening on port 3000" );
 });
 
-// app.listen(port, function() {
-// 	console.log('Server started on', port);
-// });
 

@@ -1,7 +1,21 @@
-.navBar{
+
+.navHead {
+  background:  #9CC0C9;
+  color: #F8F2F6;
+}
+
+a.navHead {
+  color: #F8F2F6;
+}
+
+a.navBar{
 	font-family: 'Josefin Slab', serif;
   font-size: 18px;
+  background:  #9CC0C9;
+  color: #EBF2EB;
 }
+
+
 
 .login {
 	font-family: 'Josefin Slab', serif;

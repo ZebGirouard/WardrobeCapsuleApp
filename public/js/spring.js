@@ -72,49 +72,59 @@ function deleteDressSuccess(json) {
 
 function shoeSuccess(json) {
 	console.log("shoe success!");
-	var allshoes = json;
+	var allShoes = json;
 	// console.log(allshoes);
 
-	var shoeOneName = allshoes[10].name;
-	var shoeOnePrice = allshoes[10].price;
-	var shoeOneUrl= allshoes[10].url;
-	var shoeOneImage = allshoes[10].image;
-
-	$('.shoe1').find('.card-img-top').attr("src", shoeOneImage);
-	$('.shoe1').find('.card-text').text(shoeOnePrice);
-	$('.shoe1').find('.card-title').text(shoeOneName);
-	$('.shoe1').find('.btn').attr("href", shoeOneUrl);
-
-	var shoeTwoName = allshoes[11].name;
-	var shoeTwoPrice = allshoes[11].price;
-	var shoeTwoUrl= allshoes[11].url;
-	var shoeTwoImage = allshoes[11].image;
-
-	$('.shoe2').find('.card-img-top').attr("src", shoeTwoImage);
-	$('.shoe2').find('.card-text').text(shoeTwoPrice);
-	$('.shoe2').find('.card-title').text(shoeTwoName);
-	$('.shoe2').find('.btn').attr("href", shoeTwoUrl);
-
-	var shoeThreeName = allshoes[34].name;
-	var shoeThreePrice = allshoes[34].price;
-	var shoeThreeUrl= allshoes[34].url;
-	var shoeThreeImage = allshoes[34].image;
-
-	$('.shoe3').find('.card-img-top').attr("src", shoeThreeImage);
-	$('.shoe3').find('.card-text').text(shoeThreePrice);
-	$('.shoe3').find('.card-title').text(shoeThreeName);
-	$('.shoe3').find('.btn').attr("href", shoeThreeUrl);
+	for (var i = 0; i < allShoes.length; i++) {
+		var shoeArray = allShoes[i];
+		console.log(shoeArray);
+		var shoeId = shoeArray._id;
+		var shoeName = shoeArray.name;
+		var shoePrice = shoeArray.price;
+		var shoeUrl = shoeArray.url;
+		var shoeImage = shoeArray.image;	
 
 
-	var shoeFourName = allshoes[38].name;
-	var shoeFourPrice = allshoes[38].price;
-	var shoeFourUrl= allshoes[38].url;
-	var shoeFourImage = allshoes[38].image;
+	// var shoeOneName = allshoes[10].name;
+	// var shoeOnePrice = allshoes[10].price;
+	// var shoeOneUrl= allshoes[10].url;
+	// var shoeOneImage = allshoes[10].image;
 
-	$('.shoe4').find('.card-img-top').attr("src", shoeFourImage);
-	$('.shoe4').find('.card-text').text(shoeFourPrice);
-	$('.shoe4').find('.card-title').text(shoeFourName);
-	$('.shoe4').find('.btn').attr("href", shoeFourUrl);
+	$('.shoe').find('.card-img-top').attr("src", shoeImage);
+	$('.shoe').find('.card-text').text(shoePrice);
+	$('.shoe').find('.card-title').text(shoeName);
+	$('.shoe').find('.btn').attr("href", shoeUrl);
+}
+	// var shoeTwoName = allshoes[11].name;
+	// var shoeTwoPrice = allshoes[11].price;
+	// var shoeTwoUrl= allshoes[11].url;
+	// var shoeTwoImage = allshoes[11].image;
+
+	// $('.shoe2').find('.card-img-top').attr("src", shoeTwoImage);
+	// $('.shoe2').find('.card-text').text(shoeTwoPrice);
+	// $('.shoe2').find('.card-title').text(shoeTwoName);
+	// $('.shoe2').find('.btn').attr("href", shoeTwoUrl);
+
+	// var shoeThreeName = allshoes[34].name;
+	// var shoeThreePrice = allshoes[34].price;
+	// var shoeThreeUrl= allshoes[34].url;
+	// var shoeThreeImage = allshoes[34].image;
+
+	// $('.shoe3').find('.card-img-top').attr("src", shoeThreeImage);
+	// $('.shoe3').find('.card-text').text(shoeThreePrice);
+	// $('.shoe3').find('.card-title').text(shoeThreeName);
+	// $('.shoe3').find('.btn').attr("href", shoeThreeUrl);
+
+
+	// var shoeFourName = allshoes[38].name;
+	// var shoeFourPrice = allshoes[38].price;
+	// var shoeFourUrl= allshoes[38].url;
+	// var shoeFourImage = allshoes[38].image;
+
+	// $('.shoe4').find('.card-img-top').attr("src", shoeFourImage);
+	// $('.shoe4').find('.card-text').text(shoeFourPrice);
+	// $('.shoe4').find('.card-title').text(shoeFourName);
+	// $('.shoe4').find('.btn').attr("href", shoeFourUrl);
 }
 
 function pantSuccess(json) {

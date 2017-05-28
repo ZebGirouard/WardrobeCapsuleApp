@@ -2,8 +2,10 @@
 
 Heroku Link:  https://nameless-basin-85535.herokuapp.com/
 
-![](public/images/image1.jpg)
-![](public/images/image2.jpg)
+
+
+![wirefram1](./public/images/image1.JPG)
+![wirefram2](./public/images/image2.JPG)
 
 
 # Thursday, April 20:
